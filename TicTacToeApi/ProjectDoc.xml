@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TicTacToeApi</name>
+    </assembly>
+    <members>
+        <member name="P:TicTacToeApi.Models.TurnModel.PosX">
+            <summary>
+            form 0 to 2
+            </summary>
+        </member>
+        <member name="P:TicTacToeApi.Models.TurnModel.PosY">
+            <summary>
+            from 0 to 2
+            </summary>
+        </member>
+    </members>
+</doc>
