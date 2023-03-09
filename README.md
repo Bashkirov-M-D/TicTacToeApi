@@ -13,4 +13,4 @@ POST ../api/games/new     // creates a new game
 
 Project includes unit tests.
 
-Futher changes (like protobuf support of docker) will be added later.
+Futher changes (like docker support) will be added later.
