@@ -1,8 +1,13 @@
-﻿namespace TicTacToe {
+﻿using System.Net.Sockets;
+
+namespace TicTacToe {
     public class GameManager {
         public static (bool, string) NewTurn(char[][] field, string gameStatus, int turnPosX, int turnPosY) {
             int[] coords = new int[] { -1, 0, 1 };
             char targetSymbol;
+
+            if (turnPosX > 3 || turnPosX < 0 || turnPosY > 3 || turnPosY < 0)
+                return (false, gameStatus);
 
             if (field[turnPosX][turnPosY] != ' ')
                 return (false, gameStatus);

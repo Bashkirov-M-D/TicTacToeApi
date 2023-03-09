@@ -4,6 +4,39 @@
         <name>TicTacToeApi</name>
     </assembly>
     <members>
+        <member name="M:TicTacToeApi.Controllers.GamesController.Get">
+            <summary>
+            Get all games
+            </summary>
+            <returns>List of all games</returns>
+        </member>
+        <member name="M:TicTacToeApi.Controllers.GamesController.Get(System.Int32)">
+            <summary>
+            Get particular game
+            </summary>
+            <param name="id">Id of game you want to get</param>
+            <returns>Game with given Id</returns>
+        </member>
+        <member name="M:TicTacToeApi.Controllers.GamesController.Post">
+            <summary>
+            Creates a new game
+            </summary>
+            <returns>Id of the game you created</returns>
+        </member>
+        <member name="M:TicTacToeApi.Controllers.GamesController.Put(System.Int32,TicTacToeApi.Models.TurnModel)">
+            <summary>
+            Makes a turn in specified game
+            </summary>
+            <param name="id">Id of a game</param>
+            <param name="turn">Position of your turn (Json or protobuf)</param>
+            <returns>Game condition after given turn</returns>
+        </member>
+        <member name="M:TicTacToeApi.Controllers.GamesController.Delete(System.Int32)">
+            <summary>
+            Deletes a specified game
+            </summary>
+            <param name="id">Of a game to delete</param>
+        </member>
         <member name="P:TicTacToeApi.Models.TurnModel.PosX">
             <summary>
             form 0 to 2

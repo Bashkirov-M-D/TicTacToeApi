@@ -13,14 +13,14 @@ namespace TicTacToeApi.Models {
         [ProtoMember(1)]
         public int Id { get; set; }
 
-        [ProtoIgnore]
+        [ProtoMember(2)]
         [JsonIgnore]
         public string Field { get; set; } = " ; ; ; ; ; ; ; ; ";
 
-        [ProtoMember(2)]
+        [ProtoMember(3)]
         public string Status { get; set; } = GameStatus.PlayerOneTurn;
 
-        [ProtoMember(3)]
+        [ProtoIgnore]
         [NotMapped]
         public char[][] FieldArray {
             get {

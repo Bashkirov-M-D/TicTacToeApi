@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ProtoBuf;
+using System.Diagnostics;
+using System.Text;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 using TicTacToe;
 using TicTacToeApi.Data;
 using TicTacToeApi.Models;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace TicTacToeApi.Controllers {
     [Route("api/[controller]")]
@@ -67,7 +69,7 @@ namespace TicTacToeApi.Controllers {
         /// Makes a turn in specified game
         /// </summary>
         /// <param name="id">Id of a game</param>
-        /// <param name="turn">Position of your turn</param>
+        /// <param name="turn">Position of your turn (Json or protobuf)</param>
         /// <returns>Game condition after given turn</returns>
         [HttpPut("{id}")]
         public GameModel Put(int id, [FromBody] TurnModel turn) {
@@ -94,14 +96,16 @@ namespace TicTacToeApi.Controllers {
         /// </summary>
         /// <param name="id">Of a game to delete</param>
         [HttpDelete("{id}")]
-        public void Delete(int id) {
+        public IActionResult Delete(int id) {
             GameModel model;
             using (var db = new ApiDbContext()) {
                 model = db.Games.Find(id);
                 if (model != null) {
                     db.Remove(model);
                     db.SaveChanges();
+                    return Ok();
                 }
+                return BadRequest();
             }
         }
     }
