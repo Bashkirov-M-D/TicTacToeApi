@@ -50,19 +50,18 @@ namespace TicTacToeApi.Controllers {
         /// <summary>
         /// Creates a new game
         /// </summary>
-        /// <returns>Id of the game you created</returns>
+        /// <returns>The game, that you created</returns>
         [HttpPost("new")]
-        public string Post() {
-            int id;
+        public GameModel Post() {
+            GameModel game;
 
             using (var db = new ApiDbContext()) {
-                GameModel game = new GameModel();
+                game = new GameModel();
                 db.Games.Add(game);
                 db.SaveChanges();
-                id = game.Id;
             }
 
-            return "{\"Id\": " + id + "}";
+            return game;
         }
 
         /// <summary>
